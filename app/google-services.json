@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "808225696887",
+    "project_id": "padm2122",
+    "storage_bucket": "padm2122.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808225696887:android:3353cfa89170c43f4f6a72",
+        "android_client_info": {
+          "package_name": "com.example.myfirstapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808225696887-5gtvarj43tth2f63cquet8gpcob1b570.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpwYp0QKUTWMaOuPQQemtnUYe4yLEtAKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808225696887-5gtvarj43tth2f63cquet8gpcob1b570.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

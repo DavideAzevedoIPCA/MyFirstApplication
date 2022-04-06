@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_welcome">Bem-vindo</string>
+    <string name="main_login">Entrar</string>
+    <string name="hint_password">palavra passe</string>
+    <string name="hint_email">email@exemplo.com</string>
+    <string name="msg_login_sucess">Utilizador autenticado</string>
+    <string name="msg_login_error">Erro ao autenticar</string>
+    <string name="word_yes">Sim</string>
+    <string name="word_no">Não</string>
+    <string name="main_register">Registar</string>
+    <string name="hint_name">o seu nome aqui</string>
+    <string name="msg_register_sucess">Conta criada</string>
+    <string name="msg_register_error">Erro ao criar conta</string>
+</resources>

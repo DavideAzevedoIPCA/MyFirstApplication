@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">MyFirstApp</string>
+    <string name="main_welcome">Welcome</string>
+    <string name="main_login">Login</string>
+    <string name="hint_password">password</string>
+    <string name="hint_email">email@example.com</string>
+    <string name="msg_login_sucess">User authenticated</string>
+    <string name="msg_login_error">Error on login process</string>
+    <string name="word_yes">yes</string>
+    <string name="word_no">no</string>
+    <string name="main_register">Register</string>
+    <string name="hint_name">your name here</string>
+    <string name="msg_register_sucess">Created account</string>
+    <string name="msg_register_error">Error on create account</string>
+</resources>
