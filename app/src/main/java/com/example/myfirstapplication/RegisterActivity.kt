@@ -1,19 +1,23 @@
 package com.example.myfirstapplication
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myfirstapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,14 +41,25 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(this,getString(R.string.msg_register_sucess),Toast.LENGTH_LONG).show()
-                    this.end(name, email)
-                    finish()
+                    val uid = task.result.user?.uid
 
+                    db.collection("users").document(uid!!)
+                        .set(User (name = name))
+                        .addOnSuccessListener {
+                            Log.d("REGISTER", "DocumentSnapshot successfully written!")
+                            Toast.makeText(this,getString(R.string.msg_register_sucess),Toast.LENGTH_LONG).show()
+                            this.end(name, email)
+                            finish()
+                        }
+                        .addOnFailureListener {
+                                e ->
+                            Toast.makeText(this,getString(R.string.msg_register_error),Toast.LENGTH_LONG).show()
+                            Log.w("REGISTER", "Error writing document", e)
+                        }
                 } else {
-                    // If sign in fails, display a message to the user.
                     Toast.makeText(this,getString(R.string.msg_register_error),Toast.LENGTH_LONG).show()
+                    // If sign in fails, display a message to the user.
+
                 }
             }
     }
