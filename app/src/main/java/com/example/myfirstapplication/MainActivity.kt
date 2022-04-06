@@ -74,4 +74,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun String.isValidPassword() =
         isNotEmpty() && this.length>6
+
+    fun doOpenSecond(view: View) {
+
+        val intent = Intent(this@MainActivity, SecondActivity::class.java)
+        startActivity(intent)
+    }
 }
