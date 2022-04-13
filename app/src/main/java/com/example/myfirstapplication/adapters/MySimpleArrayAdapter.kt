@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstapplication.R
 
 class MySimpleArrayAdapter(context: Context,resource: Int, objects: MutableList<String>)
@@ -22,16 +23,25 @@ class MySimpleArrayAdapter(context: Context,resource: Int, objects: MutableList<
         }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        val view: View
+        val vh: MyViewHolder
 
-        val inflater = LayoutInflater.from(mContext)
-        val rowView = inflater.inflate(mResources,parent,false)
+        if (convertView != null){
+            view = convertView
+        }
+        else{
+            view = LayoutInflater.from(context).inflate(R.layout.layout_item,parent,false)
+            view.tag=MyViewHolder(view)
+        }
 
-        val textView = rowView.findViewById<TextView>(R.id.item_text)
+        vh = view.tag as MyViewHolder
 
-        val value = mValues[position]
+        vh.textView?.text = getItem(position)
 
-        textView.text = value
+        return view
+    }
 
-        return rowView
+    private class MyViewHolder(view: View?){
+        val textView = view?.findViewById<TextView>(R.id.item_text)
     }
 }
